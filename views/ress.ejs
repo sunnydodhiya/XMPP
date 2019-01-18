@@ -1,0 +1,341 @@
+<html>
+    <head>
+      <style>
+        input[type=submit] {
+  width: 10%;
+  background-color: #6699ff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* input[type=text] {
+  width: 35%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ */
+
+    </style>
+        
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script> --><!-- load angular -->
+  <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="angular.min.js"></script> -->
+<!-- <script type="text/javascript" src="myUsers.js"></script> -->
+<link rel="stylesheet" href="/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+                
+        <title>
+            TABLE
+        </title>
+    </head>
+    <body>
+
+   <!--    //<h1><%= naam %></h1> -->
+        <div class="w3-container"><br>
+           
+       <br>
+       <table>
+          <tr>
+              <td>     </td>
+             <td> <!-- <input type="text"  class="w3-input w3-border" id="myInput" onkeyup="myFunction()" placeholder="Search for ID.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="20" maxlength="10"> --></td> 
+              <td> <input type="text"  class="w3-input w3-border" id="myInput2" onkeyup="myFunction2()" placeholder="Search for jabberAddress.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="25" maxlength="25"></td> 
+             <!--  <td> <input type="text"  class="w3-input w3-border" id="myInput3" onkeyup="myFunction3()" placeholder="Search for externalAddress.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="20" maxlength="11"></td>  -->
+   
+            </tr> 
+       </table>
+       <br> <table class="w3-table w3-bordered w3-striped"  id="myTable">
+      
+            <tr>
+              <th>no</th><th>id</th><th>jabberAddress</th><th>EXTERNAL ADDRESS</th><th>Action</th>
+            </tr>
+          
+            <% for (var i = 0; i < mappings.length; i++) { %>
+              <tr>
+                <td><%= i %></td>
+                <td><%= mappings[i].id %></td>
+                <td><%= mappings[i].jabberAddress %></td>
+                <td><%= mappings[i].externalAddress %></td>
+                
+                <td>
+                    <button  style="background: #517fff" type ="button" class="use-address" >&#9998; Edit</button>
+                    <button style="background: #517fff" type ="button"  class="use-address2">&#9998; Delete</button>
+              </tr>    
+            <% } %>
+        </table>
+        <br>
+<button id= "newmap" class="w3-btn w3-blue w3-ripple">&#9998; Create New Mapping</button>
+<!-- <script type="text/javascript">
+  document.getElementById("newmap").onclick = function () {
+      location.href = "./index2.ejs";
+  };
+</script>  -->
+<!-- <form >
+  </form> -->
+  </div>
+<!--   <script type="text/javascript" src= "myUsers.js"></script> -->
+  <div id="div1"></div>
+
+<script>
+ /*    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[2];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    } */
+    function myFunction2() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput2");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[2];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+
+    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!--      <script>   $(function(){
+        $('#myB').click(function(){
+            $('#xmpp').val($('table td:eq(2)').html());
+        $('#number').val($('table td:eq(3)').html());
+      });
+    });
+    </script> -->
+    <br>
+    <script type="text/javascript">
+
+/*       $(document).ready(function(){
+          $("#frm").hide();
+          $("#myB").click(function getele(e) {
+              $("#frm").show();
+              var a =  e.id;
+              console.log(a);
+              //$("#btn").hide();
+              $('#xmpp').val($('table td:eq(2)').html());
+        $('#number').val($('table td:eq(3)').html());
+          });
+      });
+  </script> 
+    <br>
+   <!--  //test case -->
+
+
+  <!--  EDIT BUTTON FUNCTION -->
+    <script type="text/javascript">
+
+
+$(document).ready(function(){
+        $("#frm").hide();
+$(".use-address").click(function() {
+  $("#frm2").hide();
+  $("#frm").show();
+    var $row = $(this).closest("tr");    // Find the row
+   /*  var $tds = $row.find("td"); */
+     var $tds = $row.find("td:nth-child(3)");
+     var $tds2 = $row.find("td:nth-child(4)");
+     
+    
+    $.each($tds, function() {
+        console.log($(this).text());
+        $('#xmpp').val($(this).text());
+    
+      });
+    $.each($tds2, function() {
+
+        console.log($(this).text());
+        $('#number').val($(this).text());
+    });
+    //console.log('<%= naam %>');
+    $('#name').val('<%= naam %>');        
+    $('#password').val('<%= pas %>'); 
+       
+});
+});
+  </script>
+<!-- DELETE BUTTON FUNCTION -->
+<script type="text/javascript">
+
+
+  $(document).ready(function(){
+          $("#frm2").hide();
+  $(".use-address2").click(function() {
+    $("#frm").hide();
+    $("#frm2").show();
+      var $row = $(this).closest("tr");    // Find the row
+     /*  var $tds = $row.find("td"); */
+     var $tds = $row.find("td:nth-child(2)");
+       
+      
+      $.each($tds, function() {
+          console.log($(this).text());
+          $('#id').val($(this).text());
+      
+        });
+      //console.log('<%= naam %>');
+      $('#name2').val('<%= naam %>');        
+      $('#password2').val('<%= pas %>'); 
+         
+  });
+  });
+    </script>    
+
+
+
+
+
+
+
+
+<!-- <script type="text/javascript">
+
+
+  $(document).ready(function(){
+          $("#frm2").hide();
+  $(".use-address2").click(function() {
+    $("#frm").hide();
+    $("#frm2").show();
+      var $row = $(this).closest("tr");    // Find the row
+     /*  var $tds = $row.find("td"); */
+       var $tds = $row.find("td:nth-child(2)");
+     /*   var $tds2 = $row.find("td:nth-child(4)"); */
+      
+      $.each($tds, function() {
+          console.log($(this).text());
+          $('#id').val($(this).text());
+      
+        });
+
+        $('#name').val('<%= naam %>');        
+        $('#password').val('<%= pas %>'); 
+
+  });
+  });
+    </script> -->
+
+
+  <!--   <script type="text/javascript">
+
+      $(document).ready(function(){
+          $("#frm2").hide();
+          $("#myB2").click(function(e) {
+              $("#frm2").show();
+              //$("#btn").hide();
+              $('#id').val($('table td:eq(1)').html());
+       // $('#number').val($('table td:eq(3)').html());
+       
+          });
+      });
+  </script> -->
+
+<!-- for create new mapping -->
+<script type="text/javascript">
+
+  $(document).ready(function(req){
+      $("#frm").hide();
+      $("#newmap").click(function(e) {
+        $("#frm2").hide();
+          $("#frm").show();
+
+          //comsole.log(req.session.uname);
+          //$('#name').val($(req.session.uname).text());
+          $('#xmpp').val('');
+          $('#number').val('');
+          $('#name').val('<%= naam %>');        
+          $('#password').val('<%= pas %>'); 
+
+
+          //$("#btn").hide();
+         /*  $('#id').val($('table td:eq(1)').html()); */
+   // $('#number').val($('table td:eq(3)').html());
+   
+      });
+  });
+</script>
+
+
+
+  <div>
+      <form action="http://127.0.0.1:3000/api" method="get" id="frm">
+          <fieldset>
+          </br>
+              <label for="name">UserName:</label>
+              <input class="w3-input w3-border" type="text" id="name" name="name" placeholder="Enter UserName(ACCOUNT SID)" />
+          </br>
+              <label for="password">Password:</label>
+              <input class="w3-input w3-border" type="text" id="password" name="password" placeholder="Enter Password(AUTH TOKEN)" />
+            </br>
+              <label for="xmppId">XMPP ID:</label>
+              <input  class="w3-input w3-border" type="text"id="xmpp" name="xmpp" placeholder="Enter your XMPP ID(ex:sunny@xmpp.xyz)"></input>
+            </br>
+              <label for="number">RC NUMBER:</label>
+              <input class="w3-input w3-border" type="text"id="number" name = "number" placeholder="Enter your RC Number(ex:12012990000)"></input>
+            </br>
+              <input type="submit" value="MAP" />
+          </fieldset>
+      </form>
+      </div>
+      <div>
+          <form action="http://127.0.0.1:3000/api/delete" method="get" id="frm2">
+              <fieldset>
+              </br>
+                  <label for="name">UserName:</label>
+                  <input class="w3-input w3-border" type="text" id="name2" name="name2" class="name2" placeholder="Enter UserName(ACCOUNT SID)" />
+              </br></br>
+                  <label for="password">Password:</label>
+                  <input class="w3-input w3-border" type="text" id="password2" class= "password2" name="password2" placeholder="Enter Password(AUTH TOKEN)" />
+                </br></br>
+                  <label for="id">XMPP ID:</label>
+                  <input  class="w3-input w3-border" type="text" id="id" class="id" name="id" placeholder="Enter your XMPP ID"></input>
+           <!--      </br></br></br>
+                  <label for="number">RC NUMBER:</label>
+                  <input type="text"id="number" name = "number" placeholder="Enter your RC Number(ex:12012990000)"></input>
+                </br></br></br> -->
+                <br>
+                  <input type="submit" value="DELETE MAP" />
+              </fieldset>
+          </form>
+          </div>
+    </body>
+</html>
+
+
+
+<!-- form inside content -->
+   <!--  <h3 ng-show="edit">Create New User:</h3>
+    <h3 ng-hide="edit">Edit User:</h3>
+      <label>XMPP ID:</label>
+      <input  class="w3-input w3-border" type="text" ng-model="idd" ng-disabled="!edit" placeholder="sunnyd@xmpp.xyz">
+    <br>
+      <label>RC NUMBER:</label>
+      <input class="w3-input w3-border" type="text" ng-model="jabberAddress" ng-disabled="!edit" placeholder="12017780615">
+    <br>
+    <button class="w3-btn w3-blue w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes</button> -->

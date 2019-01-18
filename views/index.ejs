@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+label {
+    font: normal 17px courier !important;
+    color:#6699ff;
+}
+form{
+  padding:260px;
+  height:100%;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: 	#e5e5e5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height:15%;
+}
+
+
+.navbarr {
+  overflow: hidden;
+  background-color:		#e5e5e5;
+  position: fixed;
+  left: 0;
+  width: 15%;
+  height:100%;
+}
+.btn-group button {
+  background-color: #6699ff; /* Green background */
+  border: 1px ; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width:70%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+ 
+ 
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: 	#0000FF;
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #6699ff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* input[type=submit]:hover {
+  background-color: #45a049;
+} */
+
+/* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+</style>
+  <head>
+    <title>MAP</title>
+  <!--   <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+  </head>
+  <body>
+
+<div class="navbar">
+<IMG STYLE="position:absolute; TOP:7px; LEFT:0px; WIDTH:320px; HEIGHT:132px" SRC="logo.png" />
+</div>
+
+<!-- <div class="navbarr">
+ 
+
+</div>
+ -->
+
+  <div>
+    <form action="/api/get" method="get">
+       <fieldset> 
+       </br></br>
+            <label for="name">UserName:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your UserName" size="80" width="100"/>
+        </br></br> </br></br>
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" placeholder="Enter Password" size="81.5" width="100"/>
+          </br></br></br></br>
+         <!--    <label for="xmppId">XMPP ID:</label>
+            <input  id="xmpp" name="xmpp" placeholder="Enter your XMPP ID"></input>
+          </br></br>
+            <label for="number">RC NUMBER:</label>
+            <input id="number" name = "number" placeholder="Enter your RC Number"></input>
+          </br></br> -->
+            <input type="submit" value="GET MAPPINGS" id="sub" />
+       </fieldset> 
+    </form>
+   
+    </div>
+
+
+
+ 
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

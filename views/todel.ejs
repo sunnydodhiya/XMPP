@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: 	#e5e5e5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height:15%;
+}
+
+
+.navbarr {
+  overflow: hidden;
+  background-color:		#e5e5e5;
+  position: fixed;
+  left: 0;
+  width: 15%;
+  height:100%;
+}
+.btn-group button {
+  background-color: #6699ff; /* Green background */
+  border: 1px ; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width:85%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  height:70%;
+ 
+ 
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: 	#0000FF;
+}
+
+} 
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<IMG STYLE="position:absolute; TOP:7px; LEFT:220px; WIDTH:320px; HEIGHT:132px" SRC="logo.png" />
+ 
+<!-- <img src="logo.png" alt="telestax logo" > -->
+</div>
+
+<div class="navbarr">
+    
+<div class="btn-group">
+<br>
+  <br><br><br>
+  <br><br>
+  <br><!-- <br>
+  <br>
+  <br>
+<button id="myButton3" class="float-left submit-button" >HOME</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "./todel.ejs";
+    };
+</script>  -->
+
+<br>
+  <br>
+  <br>  
+<button STYLE="position:absolute; LEFT:20px; WIDTH:180px; HEIGHT:62px" id="myButton" class="float-left submit-button" >GET MAPPINGS</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "./index.ejs";
+    };
+</script>  <br>
+ 
+  <br>
+  <br><br><br><br>
+  <button STYLE="position:absolute; LEFT:20px; WIDTH:180px; HEIGHT:62px" id="myButton2" class="float-left submit-button" >CREATE NEW MAPPING</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton2").onclick = function () {
+        location.href = "./index2.ejs";
+    };
+</script> 
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>

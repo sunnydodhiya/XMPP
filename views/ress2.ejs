@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script> --><!-- load angular -->
+  <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="angular.min.js"></script> -->
+<!-- <script type="text/javascript" src="myUsers.js"></script> -->
+<link rel="stylesheet" href="/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+<!-- 
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ -->
+ <style>
+h1{
+    text-align:center;
+}
+ </style>
+                
+        <title>
+            TABLE
+        </title>
+    </head>
+    <body >
+   
+        <h1>
+           - MAPPING DONE SUCCESFULLY -  
+        </h1>
+        <div class="w3-container">
+        <table class="w3-table w3-bordered w3-striped"><tr>
+            <th>ID</th><th>JABBERADDRESS</th><th>EXTERNAL ADDRESS</th>
+        </tr>
+        <tr>
+            <td><%= mappings.id %></td>
+            <td><%= mappings.jabberAddress %></td>
+            <td><%= mappings.externalAddress %></td>
+
+        </tr>
+        </table>
+        <br>
+        <button id= "getallmap" class="w3-btn w3-blue w3-ripple">&#9998; GET ALL MAPPINGS</button>
+<script type="text/javascript">
+  document.getElementById("getallmap").onclick = function () {
+      location.href = "./index.ejs";     //index to ress                  change 1
+  };
+</script> 
+
+   <!--      ID:
+        <h2><%= mappings.id %></h2>
+        jabberAddress:
+        <h2><%= mappings.jabberAddress %></h2>
+        External Address:
+        <h2><%= mappings.externalAddress %></h2> -->
+
+    </body>
+    </html>

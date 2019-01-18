@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>session check</title>
+</head>
+<!-- <div id="result"></div> -->
+
+<!-- <script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickcount) {
+      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+    } else {
+      sessionStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+<body>
+        <form >
+            <fieldset>
+            </br>
+                <label for="name">UserName:</label>
+                <input class="w3-input w3-border" type="text" id="name" name="name" placeholder="Enter UserName(ACCOUNT SID)" />
+            </br>
+                <label for="password">Password:</label>
+                <input class="w3-input w3-border" type="text" id="password" name="password" placeholder="Enter Password(AUTH TOKEN)" />
+              </br>
+                <input type="submit" value="MAP" />
+            </fieldset>
+        </form> -->
+        <body>
+          
+            <script type="text/javascript">
+                    localStorage.setItem('name', 'sunny');
+                    let val = localStorage.getItem('name');
+                    console.log(val);
+       
+            </script>
+                
+</body>
+</html>
