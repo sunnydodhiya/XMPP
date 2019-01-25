@@ -1,204 +1,43 @@
-<!DOCTYPE html>
-<html>
-<style>
-
-label {
-    font: normal 17px courier !important;
-    color:#6699ff;
-}
-form{
-  padding:260px;
-  height:100%;
-}
-
-.navbar {
-  overflow: hidden;
-  background-color: 	#e5e5e5;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height:15%;
-}
-
-
-.navbarr {
-  overflow: hidden;
-  background-color:		#e5e5e5;
-  position: fixed;
-  left: 0;
-  width: 15%;
-  height:100%;
-}
-.btn-group button {
-  background-color: #6699ff; /* Green background */
-  border: 1px ; /* Green border */
-  color: white; /* White text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  width:70%; /* Set a width if needed */
-  display: block; /* Make the buttons appear below each other */
- 
- 
-}
-
-.btn-group button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
-
-/* Add a background color on hover */
-.btn-group button:hover {
-  background-color: 	#0000FF;
-}
-
-
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #6699ff;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* input[type=submit]:hover {
-  background-color: #45a049;
-} */
-
-/* div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-} */
-</style>
-  <head>
-    <title>MAP</title>
-  <!--   <link rel='stylesheet' href='/stylesheets/style.css' /> -->
-  </head>
-  <body>
-      <h2>
-          SUCCESFULL
-      </h2>
-
-<div class="navbar">
-<IMG STYLE="position:absolute; TOP:7px; LEFT:0px; WIDTH:320px; HEIGHT:132px" SRC="logo.png" />
-</div>
-
-<!-- <div class="navbarr">
- 
-
-</div>
+ <html>
+    <head>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script> --><!-- load angular -->
+  <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="angular.min.js"></script> -->
+<!-- <script type="text/javascript" src="myUsers.js"></script> -->
+<link rel="stylesheet" href="/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      
+<!-- 
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
  -->
-<!--  <script type="text/javascript">
-  /*   $(document).ready(function(req){
+ <style>
+h1{
+    text-align:center;
+}
+ </style>
+                
+        <title>
+            TABLE
+        </title>
+    </head>
+    <body >
+        
+   
+        <h1>
+           - MAPPING DELETED SUCCESFULLY -  
+        </h1>
+   
+
+        <form id ="contactForm" action="/api/get" method="get">
+            <fieldset> 
+                <input id="name" name="name" type="hidden" value= "<%= naam %>">
+                <input id="password" name="password" type="hidden" value="<%= pas %>">
             
-        $('#name').val('req.query.name');        
-     $('#password').val(req.query.password);
-     console.log(req.query.name);
-     console.log("req.query.password"); 
-    
-    }); */
-
-    $(document).ready(function(req){
-    function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-console.log(getUrlVars()["name"]);
-$('#name2').val(getUrlVars()["name"]);
-$('#password2').val($(getUrlVars()["password"]));
-
-});
-        </script>    
-
-
- -->
-
- <button  style="background: #517fff" type ="button" class="use-address21" >&#9998; Edit</button>
-
-  <!--  EDIT BUTTON FUNCTION -->
-  <script type="text/javascript">
-
-
-    $(document).ready(function(){
-            $("#frm").hide();
-    $(".use-address21").click(function() {
-     // $("#frm2").hide();
-      $("#frm").show();
-        var $row = $(this).closest("tr");    // Find the row
-       /*  var $tds = $row.find("td"); */
-         var $tds = $row.find("td:nth-child(3)");
-         var $tds2 = $row.find("td:nth-child(4)");
-         
-        
-        $.each($tds, function() {
-            console.log($(this).text());
-            $('#xmpp').val($(this).text());
-        
-          });
-        $.each($tds2, function() {
-    
-            console.log($(this).text());
-            $('#number').val($(this).text());
-        });
-        //console.log('<%= naam %>');
-        $('#name').val('<%= naam %>');        
-        $('#password').val('<%= pas %>'); 
-           
-    });
-    });
-      </script>
+                 <input type="submit" value="GET ALL MAPPINGS" id="sub" class="w3-btn w3-blue w3-ripple"/>
+            </fieldset> 
+         </form>
         
 
-  <div>
-    <form action="http://127.0.0.1:3000/api/get" method="get" id="frm">
-       <fieldset> 
-       </br></br>
-            <label for="name">UserName:</label>
-            <input type="text" id="name2" name="name2" placeholder="Enter your UserName" size="80" width="100"/>
-        </br></br> </br></br>
-            <label for="password">Password:</label>
-            <input type="text" id="password2" name="password2" placeholder="Enter Password" size="81.5" width="100"/>
-          </br></br></br></br>
-         <!--    <label for="xmppId">XMPP ID:</label>
-            <input  id="xmpp" name="xmpp" placeholder="Enter your XMPP ID"></input>
-          </br></br>
-            <label for="number">RC NUMBER:</label>
-            <input id="number" name = "number" placeholder="Enter your RC Number"></input>
-          </br></br> -->
-            <input type="submit" value="GET MAPPINGS" id="sub" />
-       </fieldset> 
-    </form>
-
-    </div>
-
-
-
-    <!-- GET FROM DELETE -->
-
-  </body>
-</html>
+    </body>
+    </html>
+ 

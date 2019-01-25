@@ -17,7 +17,14 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//change 1 on 24 jan 
+//app.use(express.cookieParser());
+//app.use(express.session({ secret: 'something', store: store }));
+
+
+
 app.use(logger('dev'));
+
 app.use(session({secret: 'ilovetelestax',
 resave: true,
 saveUninitialized: true}));

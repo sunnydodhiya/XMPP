@@ -37,8 +37,13 @@
         </title>
     </head>
     <body>
+<!-- 
+        <script type="text/javascript">
+        (req)=>{
+          console.log( req.session.un)
+        </script> -->
 
-   <!--    //<h1><%= naam %></h1> -->
+  <!--       <h1><%= unn %></h1> -->
         <div class="w3-container"><br>
            
        <br>
@@ -123,28 +128,8 @@
 
     </script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<!--      <script>   $(function(){
-        $('#myB').click(function(){
-            $('#xmpp').val($('table td:eq(2)').html());
-        $('#number').val($('table td:eq(3)').html());
-      });
-    });
-    </script> -->
-    <br>
-    <script type="text/javascript">
 
-/*       $(document).ready(function(){
-          $("#frm").hide();
-          $("#myB").click(function getele(e) {
-              $("#frm").show();
-              var a =  e.id;
-              console.log(a);
-              //$("#btn").hide();
-              $('#xmpp').val($('table td:eq(2)').html());
-        $('#number').val($('table td:eq(3)').html());
-          });
-      });
-  </script> 
+
     <br>
    <!--  //test case -->
 
@@ -284,35 +269,38 @@ $(".use-address").click(function() {
 
 
   <div>
-      <form action="http://127.0.0.1:3000/api" method="get" id="frm">
+      <form action="/api" method="get" id="frm">
           <fieldset>
-          </br>
+          <!-- </br>
               <label for="name">UserName:</label>
               <input class="w3-input w3-border" type="text" id="name" name="name" placeholder="Enter UserName(ACCOUNT SID)" />
           </br>
               <label for="password">Password:</label>
               <input class="w3-input w3-border" type="text" id="password" name="password" placeholder="Enter Password(AUTH TOKEN)" />
-            </br>
+            </br>  -->
+            <input id="name" name="name" type="hidden" >
+            <input id="password" name="password" type="hidden" >
+
               <label for="xmppId">XMPP ID:</label>
-              <input  class="w3-input w3-border" type="text"id="xmpp" name="xmpp" placeholder="Enter your XMPP ID(ex:sunny@xmpp.xyz)"></input>
+              <input  class="w3-input w3-border" type="text"id="xmpp" name="xmpp" placeholder="Enter your XMPP ID(ex:sunny@xmpp.xyz)" required></input>
             </br>
               <label for="number">RC NUMBER:</label>
-              <input class="w3-input w3-border" type="text"id="number" name = "number" placeholder="Enter your RC Number(ex:12012990000)"></input>
+              <input class="w3-input w3-border" type="text"id="number" name = "number" placeholder="Enter your RC Number(ex:12012990000) " required></input>
             </br>
               <input type="submit" value="MAP" />
           </fieldset>
       </form>
       </div>
       <div>
-          <form action="http://127.0.0.1:3000/api/delete" method="get" id="frm2">
+          <form action="/api/delete" method="get" id="frm2">
               <fieldset>
               </br>
-                  <label for="name">UserName:</label>
-                  <input class="w3-input w3-border" type="text" id="name2" name="name2" class="name2" placeholder="Enter UserName(ACCOUNT SID)" />
-              </br></br>
-                  <label for="password">Password:</label>
-                  <input class="w3-input w3-border" type="text" id="password2" class= "password2" name="password2" placeholder="Enter Password(AUTH TOKEN)" />
-                </br></br>
+                  <!-- <label for="name">UserName:</label> -->
+                  <input class="w3-input w3-border" type="hidden" id="name2" name="name2" class="name2" placeholder="Enter UserName(ACCOUNT SID)" />
+         
+                 <!--  <label for="password">Password:</label> -->
+                  <input class="w3-input w3-border" type="hidden" id="password2" class= "password2" name="password2" placeholder="Enter Password(AUTH TOKEN)" />
+                
                   <label for="id">XMPP ID:</label>
                   <input  class="w3-input w3-border" type="text" id="id" class="id" name="id" placeholder="Enter your XMPP ID"></input>
            <!--      </br></br></br>

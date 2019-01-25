@@ -92,6 +92,10 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
+h1{
+    text-align:center;
+}
+ 
 
 /* input[type=submit]:hover {
   background-color: #45a049;
@@ -109,26 +113,15 @@ input[type=submit] {
   </head>
   <body>
 
-<div class="navbar">
-<IMG STYLE="position:absolute; TOP:7px; LEFT:0px; WIDTH:320px; HEIGHT:132px" SRC="logo.png" /> 
-</div>
+      <h1><%= vall %></h1>
 
-<!-- <div class="navbarr">
- 
-
-</div>
- -->
-
-  <div>
-  
     <form id ="contactForm" action="/api/get" method="get">
        <fieldset> 
-       </br></br>
             <label for="name">UserName:</label>
             <input type="text" id="name" name="name" placeholder="Enter your UserName" size="80" width="100"/>
         </br></br> </br></br>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" size="81.5" width="100"/>
+            <input type="text" id="password" name="password" placeholder="Enter Password" size="81.5" width="100"/>
           </br></br></br></br>
          <!--    <label for="xmppId">XMPP ID:</label>
             <input  id="xmpp" name="xmpp" placeholder="Enter your XMPP ID"></input>

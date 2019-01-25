@@ -5,6 +5,8 @@ var btoa = require('btoa');
 const ejsLint = require('ejs-lint');
 var axios = require('axios');
 var querystring = require('querystring');
+var username= "";
+var password= "";
 
 //var angular = require('angular');
 
@@ -13,15 +15,19 @@ var querystring = require('querystring');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'MAPPINGS' });
 });
+function checksession (){
+  //check if the session variable are set
+  //rreturn true if the value are set else false
 
+}
 /* GET MAPPINGS FORM (index)*/
 router.get('/index.ejs', function(req, res, next) {
   res.render('index', { title: 'GET' });
 });
 
 /* GET MAPPINGS FROM  CREATE NEW */
-router.get('/indexcopy.ejs', function(req, res, next) {
-  res.render('indexcopy', { title: 'GET' , naam:req.session.uname, pas: req.session.pass});
+router.get('/api/indexcopy.ejs', function(req, res, next) {
+  res.render('indexcopy', { title: 'GET' , naam:res.locals.unn, pas: res.locals.pss});
 });
 
 /* GET MAPPINGS FROM DELETE */
@@ -45,7 +51,13 @@ router.get('/todel.ejs', function(req, res, next) {
 });
 
 /* FOR POST REQUEST */
+
+
+
+
+
 router.get('/api', (req, res)=>{
+
 
   var data = {
     "domain": "mydomain.com",
@@ -55,6 +67,14 @@ router.get('/api', (req, res)=>{
   var url = 'https://cloud.restcomm.com/xmpp/xmppMappings';
   var username = req.query.name;
   var password = req.query.password;
+  var jabberAddress = req.query.xmpp;
+  var externalAddress = req.query.number;
+ /*  if(jabberAddress.length<=6 || externalAddress.length<3){
+  
+    console.log("redirect hoga indexcopy2 peh");
+  
+    res.render('indexcopy2', { naam:req.query.name, pas:req.query.password })
+  } */
 
   request.post( {
     url : url,
@@ -68,17 +88,31 @@ router.get('/api', (req, res)=>{
 
   } , (err , doc)=>{
 
-    if ( err ){
+    /*  if ( err ){
       res.render('error', {
         message: err.message, 
         error: err
       //res.send( err )
       });
+    }  */
+    if(doc.body == "InvalidArgumentError" || doc.body == "XmppMappingAlreadyExistError" || doc.body == "XmppMappingAlreadyExistError" || doc.body == "ExternalAddressAlreadyExistError" || doc.body =="JabberAddressAlreadyExistError"){
+      console.log("redirect hoga indexcopy2 peh");
+      res.render('indexcopy2', {vall:doc.body ,naam:req.query.name, pas:req.query.password })
     }
+  
     else{
+      //console.log("yaha n=bhi aaya else part meh");
      // res.send(doc.body)
+
+     //res.send(doc);
+    console.log("yeh doc hai niche");
+     console.log(doc);
      var data = doc.body;
-     res.render('ress2', {mappings:data });    //, naam:req.session.uname, pas: req.session.pass})
+     console.log("yeh data print hoga niche");
+     console.log(data);
+      res.locals.unn = req.query.name;
+      res.locals.pss = req.query.password;
+     res.render('ress2', {mappings:data, naam:res.locals.unn, pas: res.locals.pss});    //, naam:req.session.uname, pas: req.session.pass})
     }
     console.log(data);
   } )
@@ -86,11 +120,11 @@ router.get('/api', (req, res)=>{
 } )
 
 
+
 /* FOR GET REQUEST */
 router.get('/api/get' , (req, res)=>{
    
-req.session.uname = req.query.name;
-req.session.pass = req.query.password;
+
 
 //console.log(req.body.name);
   var username = req.query.name;
@@ -112,7 +146,7 @@ req.session.pass = req.query.password;
   } , (err , doc, body)=>{
 
    
-    if ( !body ){
+    /* if ( !body ){
       //res.send( err )
       console.log(err, "123");
       res.render('error', {
@@ -121,9 +155,15 @@ req.session.pass = req.query.password;
       //res.send( err )
       });
       //render('error', err)
-    }
+    } */
+      if(doc.body == "Unauthorized"){
+        res.render('ind',{vall:doc.body })
+       // res.send(doc.body);
+      }
+
       else{
-        console.log(doc);
+
+        //console.log(doc);
         //res.send(JSON.stringify(doc));
          var myObj = doc.body;
          var body = JSON.parse(myObj);
@@ -138,14 +178,18 @@ req.session.pass = req.query.password;
           }
             data.push(temp);
         } 
-    // res.send(body)
-       //res.send({mappings: data})
-       //res.send({mapping1 : data[0],  mapping2 : data[1]}) 
-        res.render('ress', {mappings:data, naam:req.session.uname, pas: req.session.pass})    //change 2
+    /*     req.session.un = req.query.name;
+        req.session.ps = req.query.password;
+        console.log("session variables are");
+        console.log(req.session.un ); */
+        res.locals.unn = req.query.name;
+        res.locals.pss = req.query.password;
+      
+        res.render('ress', {mappings:data, naam:res.locals.unn, pas: res.locals.pss })    //change 2
 
     }
 console.log("Basic " + btoa(username + ":" + password));
-console.log(req.session.uname);
+
 
   } )
 })
@@ -163,11 +207,11 @@ router.get('/api/delete', (req, res)=>{
     }
     var data = req.query.id;
   var url = 'https://cloud.restcomm.com/xmpp/xmppMappings/' + data;
-/*   var username = req.query.name;
-  var password = req.query.password; */
+   var username = req.query.name2;
+  var password = req.query.password2; 
 
-  var username = req.session.uname;
-  var password = req.session.pass;
+ /*  var username = req.session.uname;
+  var password = req.session.pass; */
 
  console.log(url);
 
@@ -192,8 +236,12 @@ router.get('/api/delete', (req, res)=>{
     }
     else{                   //CHANGED FROM RESS3 TO INDEXCOPY            - - - - - - - -CHANGE- - - - - - - - -
        
+
       var data = doc.body;
-      res.render('ress3', {mappings:data, naam:req.session.uname, pas: req.session.pass})
+      res.locals.unn = req.query.name2;
+      res.locals.pss = req.query.password2;
+      res.locals.iddd = req.query.id;
+      res.render('indexcopy', {mappings:data, naam:res.locals.unn,  pas:res.locals.pss,idhai:res.locals.iddd})
       //res.send(doc)
      // res.send(doc.body)
      //var data = doc.body;
@@ -201,7 +249,7 @@ router.get('/api/delete', (req, res)=>{
     }
     console.log(data);
   } )
-
+  
 } )
 
 module.exports = router;

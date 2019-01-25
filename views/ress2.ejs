@@ -21,6 +21,21 @@ h1{
         </title>
     </head>
     <body >
+          <!--   <script type="text/javascript">
+
+              
+                      
+                        $('#name').val('<%= naam %>');        
+                        $('#password').val('<%= pas %>'); 
+              
+              
+                        //$("#btn").hide();
+                       /*  $('#id').val($('table td:eq(1)').html()); */
+                 // $('#number').val($('table td:eq(3)').html());
+                 
+           
+              
+              </script> -->
    
         <h1>
            - MAPPING DONE SUCCESFULLY -  
@@ -37,12 +52,13 @@ h1{
         </tr>
         </table>
         <br>
-        <button id= "getallmap" class="w3-btn w3-blue w3-ripple">&#9998; GET ALL MAPPINGS</button>
-<script type="text/javascript">
+ <!--        <button id= "getallmap" class="w3-btn w3-blue w3-ripple">&#9998; GET ALL MAPPINGS</button> -->
+<!-- <script type="text/javascript">
   document.getElementById("getallmap").onclick = function () {
       location.href = "./index.ejs";     //index to ress                  change 1
   };
-</script> 
+</script>  -->
+
 
    <!--      ID:
         <h2><%= mappings.id %></h2>
@@ -50,6 +66,20 @@ h1{
         <h2><%= mappings.jabberAddress %></h2>
         External Address:
         <h2><%= mappings.externalAddress %></h2> -->
+
+        <form id ="contactForm" action="/api/get" method="get">
+                <input id="name" name="name" type="hidden" value= "<%= naam %>">
+                <input id="password" name="password" type="hidden" value="<%= pas %>">
+              <!--    <label for="xmppId">XMPP ID:</label>
+                 <input  id="xmpp" name="xmpp" placeholder="Enter your XMPP ID"></input>
+               </br></br>
+                 <label for="number">RC NUMBER:</label>
+                 <input id="number" name = "number" placeholder="Enter your RC Number"></input>
+               </br></br> -->
+                 <input type="submit" value="GET ALL MAPPINGS" id="sub" class="w3-btn w3-blue w3-ripple"/>
+            
+         </form>
+        
 
     </body>
     </html>
