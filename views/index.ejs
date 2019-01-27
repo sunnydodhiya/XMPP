@@ -93,19 +93,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* input[type=submit]:hover {
-  background-color: #45a049;
-} */
-
-/* div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-} */
 </style>
   <head>
     <title>MAP</title>
-  <!--   <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+
   </head>
   <body>
 
@@ -130,12 +121,6 @@ input[type=submit] {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter Password" size="81.5" width="100"/>
           </br></br></br></br>
-         <!--    <label for="xmppId">XMPP ID:</label>
-            <input  id="xmpp" name="xmpp" placeholder="Enter your XMPP ID"></input>
-          </br></br>
-            <label for="number">RC NUMBER:</label>
-            <input id="number" name = "number" placeholder="Enter your RC Number"></input>
-          </br></br> -->
             <input type="submit" value="GET MAPPINGS" id="sub" />
        </fieldset> 
     </form>
@@ -143,28 +128,6 @@ input[type=submit] {
     </div>
 
     <div id="result"></div>
- <!--    <script type="text/javascript">
-
-    window.onload = function() {
-
-      // Check for LocalStorage support.
-      if (localStorage) {
-    
-        // Add an event listener for form submissions
-        document.getElementById('contactForm').addEventListener('submit', function() {
-          // Get the value of the name field.
-          var name = document.getElementById('name').value;
-          var paaas =  document.getElementById('password').value;
-    
-          // Save the name in localStorage.
-          session.setItem('name', name);
-          session.setItem('paaas', paaas);
-        });
-    
-      }
-    
-    }
-  </script> -->
   </body>
 </html>
 
@@ -177,43 +140,6 @@ input[type=submit] {
 
 
 
-
-
-
-
-
-
-
-<!-- /* 
-imp sessiom -->
-
-<!-- script type='text/javascript'>
-  $(document).ready(function() {
-     //option A
-     $("form").submit(function(e){
-         alert('submit intercepted');
-         e.preventDefault(e);
-     });
- });
-
- </script>  
-
-
-<script>
-  if (typeof(Storage) !== "undefined") {
-      // Store
-      var name = document.getElementById('name');
-      var naaam = "dodhiya";
-      localStorage.setItem("lastname2", naaam);
-      // Retrieve
-      document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-    } else {
-      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-    }</script> */
-
-
-
- -->
 
 
 

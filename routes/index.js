@@ -8,7 +8,6 @@ var querystring = require('querystring');
 var username= "";
 var password= "";
 
-//var angular = require('angular');
 
 
 /* GET home page changed from todel to index.      DELETEREQ*/
@@ -249,7 +248,7 @@ router.get('/api/delete', (req, res)=>{
     }
     console.log(data);
   } )
-  
+
 } )
 
 module.exports = router;

@@ -11,23 +11,22 @@
   border-radius: 4px;
   cursor: pointer;
 }
-/* input[type=text] {
-  width: 35%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+ input[id=myInput2]{
+  width: 100%;
   box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
 }
- */
 
     </style>
         
-        <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script> --><!-- load angular -->
-  <!--       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="angular.min.js"></script> -->
-<!-- <script type="text/javascript" src="myUsers.js"></script> -->
 <link rel="stylesheet" href="/w3css/4/w3.css">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       
@@ -37,13 +36,6 @@
         </title>
     </head>
     <body>
-<!-- 
-        <script type="text/javascript">
-        (req)=>{
-          console.log( req.session.un)
-        </script> -->
-
-  <!--       <h1><%= unn %></h1> -->
         <div class="w3-container"><br>
            
        <br>
@@ -52,7 +44,7 @@
               <td>     </td>
              <td> <!-- <input type="text"  class="w3-input w3-border" id="myInput" onkeyup="myFunction()" placeholder="Search for ID.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="20" maxlength="10"> --></td> 
               <td> <input type="text"  class="w3-input w3-border" id="myInput2" onkeyup="myFunction2()" placeholder="Search for jabberAddress.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="25" maxlength="25"></td> 
-             <!--  <td> <input type="text"  class="w3-input w3-border" id="myInput3" onkeyup="myFunction3()" placeholder="Search for externalAddress.." style="font-size: 18pt; height: 30px;" title="Type in jabberAddress" size="20" maxlength="11"></td>  -->
+            
    
             </tr> 
        </table>
@@ -70,43 +62,19 @@
                 <td><%= mappings[i].externalAddress %></td>
                 
                 <td>
-                    <button  style="background: #517fff" type ="button" class="use-address" >&#9998; Edit</button>
-                    <button style="background: #517fff" type ="button"  class="use-address2">&#9998; Delete</button>
+                    <button  style="background: #4a80ff" type ="button" class="use-address" >&#9998; Edit</button>
+                    <button style="background:  #4a80ff" type ="button"  class="use-address2">&#9998; Delete</button>
               </tr>    
             <% } %>
         </table>
         <br>
 <button id= "newmap" class="w3-btn w3-blue w3-ripple">&#9998; Create New Mapping</button>
-<!-- <script type="text/javascript">
-  document.getElementById("newmap").onclick = function () {
-      location.href = "./index2.ejs";
-  };
-</script>  -->
-<!-- <form >
-  </form> -->
   </div>
-<!--   <script type="text/javascript" src= "myUsers.js"></script> -->
+
   <div id="div1"></div>
 
 <script>
- /*    function myFunction() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
-        }       
-      }
-    } */
+
     function myFunction2() {
       var input, filter, table, tr, td, i, txtValue;
       input = document.getElementById("myInput2");
@@ -131,7 +99,6 @@
 
 
     <br>
-   <!--  //test case -->
 
 
   <!--  EDIT BUTTON FUNCTION -->
@@ -194,53 +161,6 @@ $(".use-address").click(function() {
     </script>    
 
 
-
-
-
-
-
-
-<!-- <script type="text/javascript">
-
-
-  $(document).ready(function(){
-          $("#frm2").hide();
-  $(".use-address2").click(function() {
-    $("#frm").hide();
-    $("#frm2").show();
-      var $row = $(this).closest("tr");    // Find the row
-     /*  var $tds = $row.find("td"); */
-       var $tds = $row.find("td:nth-child(2)");
-     /*   var $tds2 = $row.find("td:nth-child(4)"); */
-      
-      $.each($tds, function() {
-          console.log($(this).text());
-          $('#id').val($(this).text());
-      
-        });
-
-        $('#name').val('<%= naam %>');        
-        $('#password').val('<%= pas %>'); 
-
-  });
-  });
-    </script> -->
-
-
-  <!--   <script type="text/javascript">
-
-      $(document).ready(function(){
-          $("#frm2").hide();
-          $("#myB2").click(function(e) {
-              $("#frm2").show();
-              //$("#btn").hide();
-              $('#id').val($('table td:eq(1)').html());
-       // $('#number').val($('table td:eq(3)').html());
-       
-          });
-      });
-  </script> -->
-
 <!-- for create new mapping -->
 <script type="text/javascript">
 
@@ -250,18 +170,13 @@ $(".use-address").click(function() {
         $("#frm2").hide();
           $("#frm").show();
 
-          //comsole.log(req.session.uname);
-          //$('#name').val($(req.session.uname).text());
+ 
           $('#xmpp').val('');
           $('#number').val('');
           $('#name').val('<%= naam %>');        
           $('#password').val('<%= pas %>'); 
 
 
-          //$("#btn").hide();
-         /*  $('#id').val($('table td:eq(1)').html()); */
-   // $('#number').val($('table td:eq(3)').html());
-   
       });
   });
 </script>
@@ -271,13 +186,6 @@ $(".use-address").click(function() {
   <div>
       <form action="/api" method="get" id="frm">
           <fieldset>
-          <!-- </br>
-              <label for="name">UserName:</label>
-              <input class="w3-input w3-border" type="text" id="name" name="name" placeholder="Enter UserName(ACCOUNT SID)" />
-          </br>
-              <label for="password">Password:</label>
-              <input class="w3-input w3-border" type="text" id="password" name="password" placeholder="Enter Password(AUTH TOKEN)" />
-            </br>  -->
             <input id="name" name="name" type="hidden" >
             <input id="password" name="password" type="hidden" >
 
@@ -295,35 +203,17 @@ $(".use-address").click(function() {
           <form action="/api/delete" method="get" id="frm2">
               <fieldset>
               </br>
-                  <!-- <label for="name">UserName:</label> -->
+               
                   <input class="w3-input w3-border" type="hidden" id="name2" name="name2" class="name2" placeholder="Enter UserName(ACCOUNT SID)" />
-         
-                 <!--  <label for="password">Password:</label> -->
+        
                   <input class="w3-input w3-border" type="hidden" id="password2" class= "password2" name="password2" placeholder="Enter Password(AUTH TOKEN)" />
                 
                   <label for="id">XMPP ID:</label>
                   <input  class="w3-input w3-border" type="text" id="id" class="id" name="id" placeholder="Enter your XMPP ID"></input>
-           <!--      </br></br></br>
-                  <label for="number">RC NUMBER:</label>
-                  <input type="text"id="number" name = "number" placeholder="Enter your RC Number(ex:12012990000)"></input>
-                </br></br></br> -->
                 <br>
-                  <input type="submit" value="DELETE MAP" />
+                  <input type="submit" value="DELETE MAP" style="background: #4a80ff"/>
               </fieldset>
           </form>
           </div>
     </body>
 </html>
-
-
-
-<!-- form inside content -->
-   <!--  <h3 ng-show="edit">Create New User:</h3>
-    <h3 ng-hide="edit">Edit User:</h3>
-      <label>XMPP ID:</label>
-      <input  class="w3-input w3-border" type="text" ng-model="idd" ng-disabled="!edit" placeholder="sunnyd@xmpp.xyz">
-    <br>
-      <label>RC NUMBER:</label>
-      <input class="w3-input w3-border" type="text" ng-model="jabberAddress" ng-disabled="!edit" placeholder="12017780615">
-    <br>
-    <button class="w3-btn w3-blue w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes</button> -->
